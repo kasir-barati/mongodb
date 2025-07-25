@@ -3,7 +3,7 @@
 <details>
 <summary>Fetch all products where their profile configuration has a price tag which is some kinda of special offer</summary>
 <table><thead><tr><th>Table Schema</th><th>Query</th></tr></thead>
-<tbody><tr>
+<tbody><tr><td>
 
 ```ts
 interface Product {
@@ -25,9 +25,7 @@ interface Product {
 }
 ```
 
-<td></td>
-
-<td>
+</td><td>
 
 ```js
 product.find({
