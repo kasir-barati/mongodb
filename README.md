@@ -1,6 +1,22 @@
 # mongodb
 
 <details>
+<summary>Return all paid orders which was placed (created) 10 minutes ago</summary>
+
+```js
+const tenMinutes = 10;
+
+const orders = await orders.aggregate([
+  { $match: { state: OrderState.PAID } },
+  { $addFields: { ordersCreatedTenSecondsAgo: { $add: ['$createdAt', tenMinutes * 60 * 1000] } } },
+  { $match: { ordersCreatedTenSecondsAgo: { $lt: new Date() } } },
+  { $project: { _id: 1 } },
+])
+```
+
+</details>
+
+<details>
 <summary>Return documents where a field (let's say the field is called myField) is a string with length greater than 0</summary>
 
 ```js
